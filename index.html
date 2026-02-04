@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CICI MUSLIMAH – Mukena Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <div class="logo">CICI MUSLIMAH</div>
+</header>
+<section class="hero reveal">
+  <div>
+    <div class="badge">Mukena Premium</div>
+    <h1>Cici <span>Muslimah</span></h1>
+    <p class="desc">
+      Mukena berbahan <b>Katun Micro</b> — lembut, adem,
+      jatuh cantik & nyaman untuk ibadah harian maupun hari raya.
+    </p>
+  </div>
+  <img src="images/home.png">
+</section>
+<section class="video-section reveal">
+  <h2>Best Prodak</h2>
+  <div class="video-wrapper">
+    <video controls>
+      <source src="video/mukena.mp4">
+    </video>
+  </div>
+  
+</section>
+<section class="promo-box reveal">
+  <div class="badge">PROMO SEBELUM THR 🔥</div>
+  <p><del>Rp 90.000</del></p>
+  <p><strong>Rp 49.500 / pcs</strong></p>
+  <!-- STICKY CTA -->
+<!-- <div class="sticky-cta">
+  <button onclick="orderWA()">💬 Pesan Sekarang</button>
+</div> -->
+
+<!-- COUNTDOWN PROMO -->
+<div class="countdown reveal">
+  <span>⏰ Promo Berakhir Dalam</span>
+  <div id="timer">00 : 00 : 00</div>
+</div>
+
+<div class="trust reveal">
+  <div>🚚 Gratis Ongkir*</div>
+  <div>⭐ Best Seller</div>
+  <div>💯 Katun Micro Premium</div>
+  <div>📦 COD Tersedia</div>
+</div>
+<div id="notif-beli" style="
+position:fixed;
+bottom:20px;
+left:20px;
+background:#fff;
+padding:14px 18px;
+border-radius:18px;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+font-size:13px;
+display:none;
+z-index:99;">
+</div>
+</section>
+
+<section class="menu">
+<h2 style="text-align:center;margin-bottom:30px">Pilih Warna</h2>
+<div class="cards">
+  <div class="card reveal">
+    <img src="images/Pink Rose.png" class="product-img">
+    <h4>Pink Rose</h4>
+    <div class="price">Rp 49.500</div>
+    <button class="btn shopee" onclick="openShopee('Pink Rose')">Shopee</button>
+  </div>
+  <div class="card reveal">
+    <img src="images/Coklat Milo.png" class="product-img">
+    <h4>Coklat Milo</h4>
+    <div class="price">Rp 49.500</div>
+    <button class="btn shopee" onclick="openShopee('Coklat Milo')">Shopee</button>
+  </div>
+  <div class="card reveal">
+    <img src="images/Coklat Mocca.png" class="product-img">
+    <h4>Coklat Mocca</h4>
+    <div class="price">Rp 49.500</div>
+    <button class="btn shopee" onclick="openShopee('Coklat Mocca')">Shopee</button>
+  </div>
+  <div class="card reveal">
+    <img src="images/Abu Silver.png" class="product-img">
+    <h4>Abu Silver</h4>
+    <div class="price">Rp 49.500</div>
+    <button class="btn shopee" onclick="openShopee('Abu Silver')">Shopee</button>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="paket-wrapper">
+  <div class="paket reveal">
+    <div class="badge">PAKET KELUARGA</div>
+    <del>Rp 270.000</del>
+    <div class="harga">Rp 145.000</div>
+    <button class="btn" onclick="orderPaket('Paket 3',145000)">WhatsApp</button>
+  </div>
+  <div class="paket reveal">
+    <div class="badge">PAKET BEST SELLER</div>
+    <del>Rp 450.000</del>
+    <div class="harga">Rp 235.000</div>
+    <button class="btn" onclick="orderPaket('Paket 5',235000)">WhatsApp</button>
+  </div>
+  <div class="paket reveal">
+    <div class="badge">PAKET THR</div>
+    <del>Rp 900.000</del>
+    <div class="harga">Rp 450.000</div>
+    <button class="btn" onclick="orderPaket('Paket 10',450000)">WhatsApp</button>
+  </div>
+</div>
+<div class="order-box reveal">
+  <h3 style="text-align:center">Pesan Sekarang</h3>
+  <select id="warna">
+    <option>Pilih Warna</option>
+    <option>Pink Rose</option>
+    <option>Coklat Milo</option>
+    <option>Coklat Mocca</option>
+    <option>Abu Silver</option>
+    <option>Rendom</option>
+  </select>
+  <input type="number" id="jumlah" value="1" min="1" oninput="hitungTotal()">
+  <div class="total" id="total">Total: Rp 49.500</div>
+  <button class="btn" onclick="orderWA()">WhatsApp</button>
+  <button class="btn shopee" onclick="openShopee(warna.value)">Shopee</button>
+</div>
+</section>
+<footer class="footer">
+  <div class="footer-wrap">
+
+    <div class="footer-brand">
+      <h3>CICI MUSLIMAH</h3>
+      <p>
+        Mukena Premium berbahan <b>Katun Micro</b>  
+        Adem, lembut & nyaman untuk ibadah harian maupun hari raya.
+      </p>
+    </div>
+
+    <div class="footer-social">
+      <h4>Ikuti Kami</h4>
+      <div class="social-links">
+        <!-- <a href="https://instagram.com/cicimuslimah" target="_blank">📸 Instagram</a>
+        <a href="https://tiktok.com/@cicimuslimah" target="_blank">🎵 TikTok</a> -->
+        <a href="https://shopee.co.id/avdsolutiondigitalcirebon" target="_blank" class="shopee">
+          🛒 Shopee Official
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-cta">
+      <h4>Butuh Cepat?</h4>
+      <button onclick="orderWA()">💬 Pesan via WhatsApp</button>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 CICI MUSLIMAH · All Rights Reserved
+  </div>
+</footer>
+
+ <script src="js/script.js" defer></script>
+</body>
+</html>
