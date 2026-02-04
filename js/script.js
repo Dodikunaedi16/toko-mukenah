@@ -147,3 +147,19 @@ function showNotif(){
 
 setInterval(showNotif, 50000);
 
+
+function openShopeePaket(paket){
+  const links = {
+    paket3: "https://id.shp.ee/M5WvNXz",
+    paket5: "https://id.shp.ee/M5WvNXz",
+    paket10:"https://id.shp.ee/M5WvNXz"
+  };
+
+  if(!links[paket]){
+    alert("Link Shopee belum tersedia");
+    return;
+  }
+
+  window.location.href = links[paket]; // lebih aman utk TikTok Ads
+}
+

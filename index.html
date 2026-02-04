@@ -47,7 +47,7 @@
 </div>
 
 <div class="trust reveal">
-  <div>🚚 Gratis Ongkir*</div>
+  <!-- <div>🚚 Gratis Ongkir*</div> -->
   <div>⭐ Best Seller</div>
   <div>💯 Katun Micro Premium</div>
   <div>📦 COD Tersedia</div>
@@ -97,26 +97,40 @@ z-index:99;">
 </section>
 
 <section>
-<div class="paket-wrapper">
-  <div class="paket reveal">
-    <div class="badge">PAKET KELUARGA</div>
-    <del>Rp 270.000</del>
-    <div class="harga">Rp 145.000</div>
-    <button class="btn" onclick="orderPaket('Paket 3',145000)">WhatsApp</button>
+  <div class="paket-wrapper">
+
+    <div class="paket reveal">
+      <div class="badge">PAKET KELUARGA</div>
+      <del>Rp 270.000</del>
+      <div class="harga">Rp 145.000</div>
+      <button class="btn shopee" onclick="openShopeePaket('paket3')">
+        BELI DI SHOPEE
+      </button>
+    </div>
+
+    <div class="paket reveal">
+      <div class="badge">PAKET BEST SELLER</div>
+      <del>Rp 450.000</del>
+      <div class="harga">Rp 235.000</div>
+      <button class="btn shopee" onclick="openShopeePaket('paket5')">
+        BELI DI SHOPEE
+      </button>
+    </div>
+
+    <div class="paket reveal">
+      <div class="badge">PAKET THR</div>
+      <del>Rp 900.000</del>
+      <div class="harga">Rp 450.000</div>
+      <button class="btn shopee" onclick="openShopeePaket('paket10')">
+        BELI DI SHOPEE
+      </button>
+    </div>
+
   </div>
-  <div class="paket reveal">
-    <div class="badge">PAKET BEST SELLER</div>
-    <del>Rp 450.000</del>
-    <div class="harga">Rp 235.000</div>
-    <button class="btn" onclick="orderPaket('Paket 5',235000)">WhatsApp</button>
-  </div>
-  <div class="paket reveal">
-    <div class="badge">PAKET THR</div>
-    <del>Rp 900.000</del>
-    <div class="harga">Rp 450.000</div>
-    <button class="btn" onclick="orderPaket('Paket 10',450000)">WhatsApp</button>
-  </div>
-</div>
+</section>
+
+
+<section class="order-section">
 <div class="order-box reveal">
   <h3 style="text-align:center">Pesan Sekarang</h3>
   <select id="warna">
