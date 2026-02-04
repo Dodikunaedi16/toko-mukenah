@@ -127,6 +127,7 @@ setInterval(updateTimer, 1000);
    ========================= */
 const notif = document.getElementById('notif-beli');
 const pembeli = [
+  "Sekar - Siduarjo",
   "Siti - Bandung",
   "Ayu - Bekasi",
   "Nur - Surabaya",
@@ -134,7 +135,9 @@ const pembeli = [
   "Rina - Bogor",
   "adisty - Cirebon",
   "Dhea - Jakarta",
-  "andini - tasikmalaya"
+  "andini - tasikmalaya",
+  " Ayesa - Jogja",
+  "Ansur - Banten"
 ];
 
 function showNotif(){
