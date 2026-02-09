@@ -179,3 +179,78 @@ function showNotif(){
 
 setInterval(showNotif, 45000);
 
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.innerWidth > 768) return;
+
+  const wrapper = document.querySelector(".paket-wrapper");
+  const cards = document.querySelectorAll(".paket");
+  const bestCard = document.querySelector(".paket.best");
+
+  let index = 0;
+  let autoSlide;
+  let isTouched = false;
+
+  // === AUTO FOKUS KE PAKET THR ===
+  if (bestCard) {
+    setTimeout(() => {
+      wrapper.scrollTo({
+        left: bestCard.offsetLeft - 16,
+        behavior: "smooth"
+      });
+      index = [...cards].indexOf(bestCard);
+    }, 600);
+  }
+
+  function startAutoSlide() {
+    autoSlide = setInterval(() => {
+      if (isTouched) return;
+
+      index++;
+      if (index >= cards.length) index = 0;
+
+      wrapper.scrollTo({
+        left: cards[index].offsetLeft - 16,
+        behavior: "smooth"
+      });
+    }, 3000);
+  }
+
+  function stopAutoSlide() {
+    clearInterval(autoSlide);
+  }
+
+  // === PAUSE SAAT DISENTUH ===
+  wrapper.addEventListener("touchstart", () => {
+    isTouched = true;
+    stopAutoSlide();
+  });
+
+  wrapper.addEventListener("touchend", () => {
+    isTouched = false;
+    startAutoSlide();
+  });
+
+  // === SUPPORT MOUSE (DESKTOP KECIL) ===
+  wrapper.addEventListener("mouseenter", stopAutoSlide);
+  wrapper.addEventListener("mouseleave", startAutoSlide);
+
+  startAutoSlide();
+});
+
+const video = document.querySelector('.video-wrapper video');
+const cta = document.querySelector('.video-cta');
+
+if(video && window.innerWidth<=768){
+  cta.style.display="none";
+
+  const obs = new IntersectionObserver(e=>{
+    if(e[0].isIntersecting){
+      video.play().catch(()=>{});
+      setTimeout(()=>cta.style.display="block",6000);
+    }else{
+      video.pause();
+    }
+  },{threshold:.6});
+
+  obs.observe(video);
+}

@@ -22,15 +22,25 @@
   </div>
   <img src="images/home.png">
 </section>
-<section class="video-section reveal">
-  <h2>Best Prodak</h2>
+
+<<section class="video-section reveal">
+  <h2 class="video-title">Dipercaya Ribuan Muslimah</h2>
+  <p class="video-sub">
+    Lembut, jatuh cantik, dan nyaman digunakan setiap hari
+  </p>
+
   <div class="video-wrapper">
-    <video controls>
+    <video autoplay muted loop playsinline>
       <source src="video/mukena.mp4">
     </video>
   </div>
-  
+
+  <p class="video-note">
+    *Video real produk, warna bisa sedikit berbeda karena pencahayaan
+  </p>
 </section>
+
+
 <section class="promo-box reveal">
   <div class="badge">PROMO SEBELUM THR 🔥</div>
   <p><del>Rp 90.000</del></p>
@@ -104,32 +114,47 @@ z-index:99;">
 </div>
 </section>
 
-<section>
+<section class="paket-section">
+  <h2 class="paket-title">Pilih Paket Hemat 🔥</h2>
+  <p class="paket-sub">
+    Lebih hemat beli paket — cocok untuk keluarga & persiapan THR
+  </p>
+
   <div class="paket-wrapper">
+
+    <!-- PAKET 3 -->
     <div class="paket reveal">
-      <div class="badge">PAKET KELUARGA 3 Psc</div>
+      <div class="badge small">PAKET KELUARGA</div>
+      <h4>3 PCS Mukena</h4>
       <del>Rp 270.000</del>
       <div class="harga">Rp 145.000</div>
+      <span class="hemat">Hemat Rp 125.000</span>
       <button class="btn shopee" onclick="openShopeePaket('paket3')">
-        BELI DI SHOPEE
+        🛒 BELI DI SHOPEE
       </button>
     </div>
 
-    <div class="paket reveal">
-      <div class="badge">PAKET BEST SELLER 5 Psc</div>
-      <del>Rp 450.000</del>
-      <div class="harga">Rp 235.000</div>
-      <button class="btn shopee" onclick="openShopeePaket('paket5')">
-        BELI DI SHOPEE
-      </button>
-    </div>
-
-    <div class="paket reveal">
-      <div class="badge">PAKET THR 10 Psc</div>
+    <!-- PAKET THR (FOCUS / BEST) -->
+    <div class="paket reveal best">
+      <div class="badge big">🔥 PAKET THR</div>
+      <h4>10 PCS Mukena</h4>
       <del>Rp 900.000</del>
       <div class="harga">Rp 450.000</div>
+      <span class="hemat">Paling Laris • Hemat Rp 450.000</span>
       <button class="btn shopee" onclick="openShopeePaket('paket10')">
-        BELI DI SHOPEE
+        🛒 BELI DI SHOPEE
+      </button>
+    </div>
+
+    <!-- PAKET 5 -->
+    <div class="paket reveal">
+      <div class="badge small">🔥 BEST SELLER</div>
+      <h4>5 PCS Mukena</h4>
+      <del>Rp 450.000</del>
+      <div class="harga">Rp 235.000</div>
+      <span class="hemat">Harga Grosir • Hemat Rp 215.000</span>
+      <button class="btn shopee" onclick="openShopeePaket('paket5')">
+        🛒 BELI DI SHOPEE
       </button>
     </div>
 
