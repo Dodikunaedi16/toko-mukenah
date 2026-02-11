@@ -6,6 +6,13 @@ const HARGA_SATUAN = 49500;
 const PHONE = "6281909944999";
 
 /* LINK SHOPEE (WAJIB LINK PRODUK / SHORTLINK) */
+const TIKTOK_LINKS = {
+  "Pink Rose": "https://vt.tokopedia.com/t/ZS9JPCcUFhpbb-yOHON/",
+  "Coklat Milo": "https://vt.tokopedia.com/t/ZS9JPCcUFhpbb-yOHON/",
+  "Coklat Mocca": "https://vt.tokopedia.com/t/ZS9JPCcUFhpbb-yOHON/",
+  "Abu Silver": "https://vt.tokopedia.com/t/ZS9JPCcUFhpbb-yOHON/"
+};
+
 const SHOPEE_LINKS = {
   "Pink Rose": "https://id.shp.ee/M5WvNXz",
   "Coklat Milo": "https://id.shp.ee/M5WvNXz",
@@ -80,12 +87,21 @@ Total: Rp ${harga.toLocaleString("id-ID")}`;
 }
 
 /* ======================================
-   OPEN SHOPEE PER WARNA
+   OPEN Tik tok PER WARNA
    ====================================== */
-function openShopee(warna){
-  const link = SHOPEE_LINKS[warna];
+function openTiktok(warna){
+  const link = TIKTOK_LINKS[warna];
   if(!link){
-    alert("Link Shopee belum tersedia");
+    alert("Silahkan pilih warna terlebih dahulu");
+    return;
+  }
+  window.location.href = link; // aman utk TikTok Ads
+}
+
+function openShopee(warna){
+  const link = SHOPEE_LINKS [warna];
+  if(!link){
+    alert("Silahkan pilih warna terlebih dahulu");
     return;
   }
   window.location.href = link; // aman utk TikTok Ads
@@ -96,15 +112,18 @@ function openShopee(warna){
    ====================================== */
 function openShopeePaket(paket){
   const links = {
-    paket3 : "https://id.shp.ee/M5WvNXz",
-    paket5 : "https://id.shp.ee/M5WvNXz",
-    paket10: "https://id.shp.ee/M5WvNXz"
+    paket3 : "https://vt.tokopedia.com/t/ZS9JPHJPsv2FA-nrXfM/",
+    paket5 : "https://vt.tokopedia.com/t/ZS9JPH82rUuvj-uhIHR/",
+    paket10: "https://vt.tokopedia.com/t/ZS9JPH22GYDPt-fk6MX/"
   };
+
+  
   if(!links[paket]){
     alert("Link paket belum tersedia");
     return;
   }
   window.location.href = links[paket];
+  
 }
 
 /* ======================================
@@ -237,20 +256,38 @@ document.addEventListener("DOMContentLoaded", function () {
   startAutoSlide();
 });
 
-const video = document.querySelector('.video-wrapper video');
-const cta = document.querySelector('.video-cta');
+/* =========================
+   AUTO SLIDE VIDEO MOBILE
+   ========================= */
 
-if(video && window.innerWidth<=768){
-  cta.style.display="none";
+const videoGrid = document.querySelector('.video-grid');
 
-  const obs = new IntersectionObserver(e=>{
-    if(e[0].isIntersecting){
-      video.play().catch(()=>{});
-      setTimeout(()=>cta.style.display="block",6000);
-    }else{
-      video.pause();
+if(videoGrid){
+
+  let index = 0;
+  const slides = videoGrid.children;
+  const totalSlides = slides.length;
+
+  function autoSlide(){
+
+    // hanya jalan di mobile
+    if(window.innerWidth > 768) return;
+
+    index++;
+
+    if(index >= totalSlides){
+      index = 0;
     }
-  },{threshold:.6});
 
-  obs.observe(video);
+    const slideWidth = slides[0].offsetWidth + 18; // + gap
+    videoGrid.scrollTo({
+      left: slideWidth * index,
+      behavior: "smooth"
+    });
+
+  }
+
+  setInterval(autoSlide, 4000); // 4 detik
+
 }
+

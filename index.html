@@ -23,22 +23,37 @@
   <img src="images/home.png">
 </section>
 
-<<section class="video-section reveal">
+<section class="video-section reveal">
   <h2 class="video-title">Dipercaya Ribuan Muslimah</h2>
   <p class="video-sub">
     Lembut, jatuh cantik, dan nyaman digunakan setiap hari
   </p>
 
-  <div class="video-wrapper">
-    <video autoplay muted loop playsinline>
-      <source src="video/mukena.mp4">
-    </video>
+  <div class="video-grid">
+
+    <div class="video-wrapper">
+      <video autoplay muted loop playsinline>
+        <source src="video/mukena1.mp4" type="video/mp4">
+      </video>
+      <span class="video-label">Ukuran Besar</span>
+    </div>
+
+    <div class="video-wrapper">
+      <video autoplay muted loop playsinline>
+        <source src="video/mukena2.mp4" type="video/mp4">
+      </video>
+      <span class="video-label">Ukuran Kecil</span>
+    </div>
+
   </div>
 
   <p class="video-note">
     *Video real produk, warna bisa sedikit berbeda karena pencahayaan
   </p>
 </section>
+
+
+
 
 
 <section class="promo-box reveal">
@@ -81,7 +96,6 @@ z-index:99;">
 <p style="font-size:14px;color:#7c2d12;margin-top:10px">
   ✔️ Tidak panas • ✔️ Tidak nerawang • ✔️ Nyaman dipakai lama
 </p>
-
 </section>
 
 <section class="menu">
@@ -91,25 +105,25 @@ z-index:99;">
     <img src="images/Pink Rose.png" class="product-img">
     <h4>Pink Rose</h4>
     <div class="price">Rp 49.500</div>
-    <button class="btn shopee" onclick="openShopee('Pink Rose')">Shopee</button>
+    <button class="btn tiktok" onclick="openShopee('Pink Rose')">TIK TOK SHOP</button>
   </div>
   <div class="card reveal">
     <img src="images/Coklat Milo.png" class="product-img">
     <h4>Coklat Milo</h4>
     <div class="price">Rp 49.500</div>
-    <button class="btn shopee" onclick="openShopee('Coklat Milo')">Shopee</button>
+    <button class="btn tiktok" onclick="openShopee('Coklat Milo')">TIK TOK SHOP</button>
   </div>
   <div class="card reveal">
     <img src="images/Coklat Mocca.png" class="product-img">
     <h4>Coklat Mocca</h4>
     <div class="price">Rp 49.500</div>
-    <button class="btn shopee" onclick="openShopee('Coklat Mocca')">Shopee</button>
+    <button class="btn tiktok" onclick="openShopee('Coklat Mocca')">TIK TOK SHOP</button>
   </div>
   <div class="card reveal">
     <img src="images/Abu Silver.png" class="product-img">
     <h4>Abu Silver</h4>
     <div class="price">Rp 49.500</div>
-    <button class="btn shopee" onclick="openShopee('Abu Silver')">Shopee</button>
+    <button class="btn tiktok" onclick="openShopee('Abu Silver')">TIK TOK SHOP</button>
   </div>
 </div>
 </section>
@@ -119,9 +133,7 @@ z-index:99;">
   <p class="paket-sub">
     Lebih hemat beli paket — cocok untuk keluarga & persiapan THR
   </p>
-
   <div class="paket-wrapper">
-
     <!-- PAKET 3 -->
     <div class="paket reveal">
       <div class="badge small">PAKET KELUARGA</div>
@@ -129,8 +141,8 @@ z-index:99;">
       <del>Rp 270.000</del>
       <div class="harga">Rp 145.000</div>
       <span class="hemat">Hemat Rp 125.000</span>
-      <button class="btn shopee" onclick="openShopeePaket('paket3')">
-        🛒 BELI DI SHOPEE
+      <button class="btn tiktok" onclick="openShopeePaket('paket3')">
+        🛒 BELI DI TIK TOK SHOP
       </button>
     </div>
 
@@ -141,8 +153,8 @@ z-index:99;">
       <del>Rp 900.000</del>
       <div class="harga">Rp 450.000</div>
       <span class="hemat">Paling Laris • Hemat Rp 450.000</span>
-      <button class="btn shopee" onclick="openShopeePaket('paket10')">
-        🛒 BELI DI SHOPEE
+      <button class="btn tiktok" onclick="openShopeePaket('paket10')">
+        🛒 BELI DI TIK TOK SHOP
       </button>
     </div>
 
@@ -153,65 +165,84 @@ z-index:99;">
       <del>Rp 450.000</del>
       <div class="harga">Rp 235.000</div>
       <span class="hemat">Harga Grosir • Hemat Rp 215.000</span>
-      <button class="btn shopee" onclick="openShopeePaket('paket5')">
-        🛒 BELI DI SHOPEE
+      <button class="btn tiktok" onclick="openShopeePaket('paket5')">
+       🛒 BELI DI TIK TOK SHOP
       </button>
     </div>
-
   </div>
 </section>
 
 
 <section class="order-section">
-<div class="order-box reveal">
-  <h3 style="text-align:center">Pesan Sekarang</h3>
-  <select id="warna">
-    <option>Pilih Warna</option>
-    <option>Pink Rose</option>
-    <option>Coklat Milo</option>
-    <option>Coklat Mocca</option>
-    <option>Abu Silver</option>
-    <option>Rendom</option>
-  </select>
-  <input type="number" id="jumlah" value="1" min="1" oninput="hitungTotal()">
-  <div class="total" id="total">Total: Rp 49.500</div>
-  <button class="btn" onclick="orderWA()">WhatsApp</button>
-  <button class="btn shopee" onclick="openShopee(warna.value)">Shopee</button>
-</div>
+  <div class="order-box reveal">
+    <h3 class="order-title">Pesan Sekarang</h3>
+
+    <select id="warna">
+      <option>Pilih Warna</option>
+      <option>Pink Rose</option>
+      <option>Coklat Milo</option>
+      <option>Coklat Mocca</option>
+      <option>Abu Silver</option>
+      <option>Rendom</option>
+    </select>
+
+    <input type="number" id="jumlah" value="1" min="1" oninput="hitungTotal()">
+
+    <div class="total" id="total">Total: Rp 49.500</div>
+
+    <div class="order-buttons">
+      <button class="btn wa" onclick="orderWA()">💬 WhatsApp</button>
+      <button class="btn shopee" onclick="openShopee(warna.value)">🛒 Shopee</button>
+      <button class="btn tiktok" onclick="openTiktok()">🎵 TikTok Shop</button>
+    </div>
+  </div>
 </section>
+
 <footer class="footer">
   <div class="footer-wrap">
 
+    <!-- BRAND -->
     <div class="footer-brand">
       <h3>CICI MUSLIMAH</h3>
       <p>
-        Mukena Premium berbahan <b>Katun Micro</b>  
+        Mukena Premium berbahan <b>Katun Micro</b><br>
         Adem, lembut & nyaman untuk ibadah harian maupun hari raya.
       </p>
     </div>
 
+    <!-- SOCIAL -->
     <div class="footer-social">
       <h4>Ikuti Kami</h4>
       <div class="social-links">
-        <!-- <a href="https://instagram.com/cicimuslimah" target="_blank">📸 Instagram</a>
-        <a href="https://tiktok.com/@cicimuslimah" target="_blank">🎵 TikTok</a> -->
-        <a href="https://shopee.co.id/avdsolutiondigitalcirebon" target="_blank" class="shopee">
+        <a class="social-btn tiktok" 
+           href="https://www.tiktok.com/@avd_cirebon?_r=1&_t=ZS-93pWmI4QikD" 
+           target="_blank">
+          🎵 TikTok Shop
+        </a>
+
+        <a class="social-btn shopee" 
+           href="https://shopee.co.id/avdsolutiondigitalcirebon" 
+           target="_blank">
           🛒 Shopee Official
         </a>
       </div>
     </div>
 
+    <!-- CTA -->
     <div class="footer-cta">
-      <h4>Butuh Cepat?</h4>
-      <button onclick="orderWA()">💬 Pesan via WhatsApp</button>
+      <h4>Butuh Respon Cepat?</h4>
+      <button class="wa-footer" onclick="orderWA()">
+        💬 Pesan via WhatsApp
+      </button>
     </div>
 
   </div>
 
   <div class="footer-bottom">
-    © 2026 CICI MUSLIMAH · All Rights Reserved
+    © 2026 CICI MUSLIMAH • All Rights Reserved
   </div>
 </footer>
+
 
  <script src="js/script.js" defer></script>
 </body>
