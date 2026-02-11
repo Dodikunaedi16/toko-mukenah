@@ -89,23 +89,23 @@ Total: Rp ${harga.toLocaleString("id-ID")}`;
 /* ======================================
    OPEN Tik tok PER WARNA
    ====================================== */
-function openTiktok(warna){
-  const link = TIKTOK_LINKS[warna];
-  if(!link){
-    alert("Silahkan pilih warna terlebih dahulu");
-    return;
-  }
-  window.location.href = link; // aman utk TikTok Ads
-}
+// function openTiktok(warna){
+//   const link = TIKTOK_LINKS[warna];
+//   if(!link){
+//     alert("Silahkan pilih warna terlebih dahulu");
+//     return;
+//   }
+//   window.location.href = link; // aman utk TikTok Ads
+// }
 
-function openShopee(warna){
-  const link = SHOPEE_LINKS [warna];
-  if(!link){
-    alert("Silahkan pilih warna terlebih dahulu");
-    return;
-  }
-  window.location.href = link; // aman utk TikTok Ads
-}
+// function openShopee(warna){
+//   const link = SHOPEE_LINKS [warna];
+//   if(!link){
+//     alert("Silahkan pilih warna terlebih dahulu");
+//     return;
+//   }
+//   window.location.href = link; // aman utk TikTok Ads
+// }
 
 /* ======================================
    SHOPEE PAKET
@@ -179,24 +179,45 @@ updateTimer();
 /* ======================================
    NOTIFIKASI PEMBELI (FOMO)
    ====================================== */
-const pembeli = [
+const customNotif = document.getElementById("customNotif");
+
+const buyers = [
   "Siti - Bandung",
   "Ayu - Bekasi",
   "Nur - Surabaya",
   "Lina - Depok",
   "Rina - Bogor",
-  "Dhea - Jakarta"
+  "Adisty - Cirebon",
+  "Dhea - Jakarta",
+  "Andini - Tasikmalaya"
 ];
 
-function showNotif(){
-  if(!notifEl) return;
-  const p = pembeli[Math.floor(Math.random()*pembeli.length)];
-  notifEl.innerHTML = `🧕 <b>${p}</b><br>baru checkout`;
-  notifEl.style.display = "block";
-  setTimeout(()=>notifEl.style.display="none",3000);
+function showCustomNotif(){
+
+  if(!customNotif) return;
+
+  const randomBuyer = buyers[Math.floor(Math.random()*buyers.length)];
+  const qty = Math.floor(Math.random()*3)+1;
+
+  customNotif.innerHTML = `
+    <div class="notif-avatar">🧕</div>
+    <div class="notif-text">
+      <b>${randomBuyer}</b><br>
+      <span>Baru saja membeli ${qty} pcs</span>
+    </div>
+    <div class="notif-progress"></div>
+  `;
+
+  customNotif.classList.add("show");
+
+  setTimeout(()=>{
+    customNotif.classList.remove("show");
+  },4000);
 }
 
-setInterval(showNotif, 45000);
+/* muncul tiap 20 detik */
+setInterval(showCustomNotif, 20000);
+
 
 document.addEventListener("DOMContentLoaded", function () {
   if (window.innerWidth > 768) return;
@@ -291,3 +312,96 @@ if(videoGrid){
 
 }
 
+function showNotif(message, type="error"){
+  const notif = document.getElementById("customNotif");
+  if(!notif) return;
+
+  notif.innerText = message;
+  notif.className = "custom-notif show " + type;
+
+  setTimeout(()=>{
+    notif.classList.remove("show");
+  },2000);
+}
+
+function openTiktok(warna){
+  const link = TIKTOK_LINKS[warna];
+
+  if(!warna || warna === "Pilih Warna"){
+    showNotif("⚠️ Silakan pilih warna terlebih dahulu", "error");
+    return;
+  }
+
+  if(!link){
+    showNotif("Link TikTok belum tersedia", "error");
+    return;
+  }
+
+  showNotif("Mengarahkan ke TikTok Shop...", "success");
+
+  setTimeout(()=>{
+    window.location.href = link;
+  },800);
+}
+
+
+function openShopee(warna){
+  const link = SHOPEE_LINKS[warna];
+
+  if(!warna || warna === "Pilih Warna"){
+    showNotif("⚠️ Silakan pilih warna terlebih dahulu", "error");
+    return;
+  }
+
+  if(!link){
+    showNotif("Link Shopee belum tersedia", "error");
+    return;
+  }
+
+  showNotif("Mengarahkan ke Shopee...", "success");
+
+  setTimeout(()=>{
+    window.location.href = link;
+  },800);
+}
+function orderWA(){
+  const warnaSelect = document.getElementById("warna");
+  const jumlahInput = document.getElementById("jumlah");
+
+  const warna = warnaSelect.value;
+  const jumlah = parseInt(jumlahInput.value) || 1;
+
+  if(!warna || warna === "Pilih Warna"){
+    showNotif("⚠️ Silakan pilih warna terlebih dahulu", "error");
+    return;
+  }
+
+  const total = jumlah * 49500;
+
+  const pesan = `
+Assalamu'alaikum 🙏
+Saya ingin pesan Mukena Cici Muslimah
+
+Warna : ${warna}
+Jumlah : ${jumlah}
+Total : Rp ${total.toLocaleString("id-ID")}
+`;
+
+  showNotif("💬 Menghubungkan ke WhatsApp...", "success");
+
+  setTimeout(()=>{
+    window.location.href =
+      "https://wa.me/6281909944999?text=" + encodeURIComponent(pesan);
+  },800);
+}
+
+function showBubble(text){
+  const bubble = document.getElementById("bubbleNotif");
+
+  bubble.innerText = text;
+  bubble.classList.add("show");
+
+  setTimeout(()=>{
+    bubble.classList.remove("show");
+  },4000);
+}

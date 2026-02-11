@@ -934,3 +934,75 @@ footer{
   }
 }
 
+/* =========================
+   NOTIF MINI SHOPEE STYLE
+========================= */
+
+.custom-notif{
+  position:fixed;
+  bottom:20px;
+  left:15px;
+
+  width:260px;
+  background:#fff;
+  border-radius:12px;
+  padding:8px 10px;
+
+  box-shadow:0 6px 20px rgba(0,0,0,.15);
+
+  display:flex;
+  align-items:center;
+  gap:8px;
+
+  font-size:12px;
+  opacity:0;
+  transform:translateY(20px);
+  transition:all .3s ease;
+  z-index:9999;
+}
+
+.custom-notif.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Avatar kecil */
+.custom-notif .notif-avatar{
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#ec4899,#f472b6);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:13px;
+  flex-shrink:0;
+}
+
+/* Text */
+.custom-notif .notif-text{
+  line-height:1.3;
+}
+
+.custom-notif .notif-text b{
+  font-weight:600;
+  color:#111;
+}
+
+.custom-notif .notif-text span{
+  font-size:11px;
+  color:#666;
+}
+
+/* Close button kecil */
+.custom-notif .close-notif{
+  margin-left:auto;
+  font-size:12px;
+  cursor:pointer;
+  color:#aaa;
+}
+
+.custom-notif .close-notif:hover{
+  color:#111;
+}
