@@ -32,20 +32,22 @@
     Lembut, jatuh cantik, dan nyaman digunakan setiap hari
   </p>
 
-  <div class="video-grid">
+  <div class="video-slider" id="videoSlider">
 
-    <div class="video-wrapper">
-      <video autoplay muted loop playsinline>
-        <source src="video/mukena1.mp4" type="video/mp4">
-      </video>
-      <span class="video-label">Ukuran Besar</span>
-    </div>
+    <div class="video-track">
 
-    <div class="video-wrapper">
-      <video autoplay muted loop playsinline>
-        <source src="video/mukena2.mp4" type="video/mp4">
-      </video>
-      <span class="video-label">Ukuran Kecil</span>
+      <div class="video-item">
+        <video controls playsinline class="product-video">
+          <source src="video/mukena1.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="video-item">
+        <video controls playsinline class="product-video">
+          <source src="video/mukena2.mp4" type="video/mp4">
+        </video>
+      </div>
+
     </div>
 
   </div>
@@ -54,9 +56,6 @@
     *Video real produk, warna bisa sedikit berbeda karena pencahayaan
   </p>
 </section>
-
-
-
 
 
 <section class="promo-box reveal">
@@ -108,25 +107,25 @@ z-index:99;">
     <img src="images/Pink Rose.png" class="product-img">
     <h4>Pink Rose</h4>
     <div class="price">Rp 49.500</div>
-    <button class="btn tiktok" onclick="openShopee('Pink Rose')">TIK TOK SHOP</button>
+    <button class="btn tiktok" onclick="openTiktokOrder('Pink Rose')">TIK TOK SHOP</button>
   </div>
   <div class="card reveal">
     <img src="images/Coklat Milo.png" class="product-img">
     <h4>Coklat Milo</h4>
     <div class="price">Rp 49.500</div>
-    <button class="btn tiktok" onclick="openShopee('Coklat Milo')">TIK TOK SHOP</button>
+    <button class="btn tiktok" onclick="openTiktokOrder('Coklat Milo')">TIK TOK SHOP</button>
   </div>
   <div class="card reveal">
     <img src="images/Coklat Mocca.png" class="product-img">
     <h4>Coklat Mocca</h4>
     <div class="price">Rp 49.500</div>
-    <button class="btn tiktok" onclick="openShopee('Coklat Mocca')">TIK TOK SHOP</button>
+    <button class="btn tiktok" onclick="opopenTiktokOrder('Coklat Mocca')">TIK TOK SHOP</button>
   </div>
   <div class="card reveal">
     <img src="images/Abu Silver.png" class="product-img">
     <h4>Abu Silver</h4>
     <div class="price">Rp 49.500</div>
-    <button class="btn tiktok" onclick="openShopee('Abu Silver')">TIK TOK SHOP</button>
+    <button class="btn tiktok" onclick="openTiktokOrder('Abu Silver')">TIK TOK SHOP</button>
   </div>
 </div>
 </section>
@@ -196,7 +195,10 @@ z-index:99;">
     <div class="order-buttons">
       <button class="btn wa" onclick="orderWA()">💬 WhatsApp</button>
       <button class="btn shopee" onclick="openShopee(warna.value)">🛒 Shopee</button>
-      <button class="btn tiktok" onclick="openTiktok()">🎵 TikTok Shop</button>
+     <button class="btn tiktok" onclick="openTiktok()">
+  🎵 TikTok Shop
+    </button>
+
     </div>
   </div>
 </section>

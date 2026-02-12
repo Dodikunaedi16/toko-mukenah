@@ -1006,3 +1006,179 @@ footer{
 .custom-notif .close-notif:hover{
   color:#111;
 }
+
+.video-section {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.video-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 320px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  background: #000;
+}
+
+.product-video {
+  width: 100%;
+  display: block;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .3s;
+}
+
+.play-btn {
+  background: #fff;
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.play-btn:hover {
+  transform: scale(1.1);
+}
+
+.video-label {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: #fff;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.video-note {
+  margin-top: 20px;
+  font-size: 12px;
+  opacity: .7;
+}
+
+/* MOBILE SLIDE */
+@media(max-width:768px){
+  .video-grid {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scroll-snap-type: x mandatory;
+  }
+
+  .video-wrapper {
+    min-width: 80%;
+    scroll-snap-align: center;
+  }
+}
+
+/* =========================
+   VIDEO MOBILE FIX
+   ========================= */
+@media(max-width:768px){
+
+  .video-section {
+    padding: 40px 0;
+  }
+
+  .video-grid {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 0 20px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .video-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .video-wrapper {
+    flex: 0 0 85%;
+    max-width: 85%;
+    scroll-snap-align: center;
+    border-radius: 18px;
+  }
+
+  .product-video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+}
+
+
+.video-section{
+  padding:60px 20px;
+  text-align:center;
+  overflow:hidden;
+}
+
+.video-slider{
+  width:100%;
+  overflow:hidden;
+  position:relative;
+}
+
+.video-track{
+  display:flex;
+  transition:transform 0.5s ease;
+}
+
+.video-item{
+  min-width:100%;
+  box-sizing:border-box;
+  padding:0 10px;
+}
+
+.product-video{
+  width:100%;
+  height:auto;
+  border-radius:18px;
+  display:block;
+}
+
+/* DESKTOP MODE */
+@media(min-width:769px){
+
+  .video-slider{
+    max-width:700px;   /* batas lebar supaya tidak besar */
+    margin:0 auto;
+  }
+
+  .video-track{
+    gap:20px;
+    justify-content:center;
+    transform:none !important;
+  }
+
+  .video-item{
+    min-width:48%;
+  }
+
+  .product-video{
+    max-height:420px;   /* batasi tinggi video */
+    object-fit:cover;
+  }
+
+}

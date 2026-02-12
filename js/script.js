@@ -13,6 +13,7 @@ const TIKTOK_LINKS = {
   "Abu Silver": "https://vt.tokopedia.com/t/ZS9JPCcUFhpbb-yOHON/"
 };
 
+
 const SHOPEE_LINKS = {
   "Pink Rose": "https://id.shp.ee/M5WvNXz",
   "Coklat Milo": "https://id.shp.ee/M5WvNXz",
@@ -89,23 +90,23 @@ Total: Rp ${harga.toLocaleString("id-ID")}`;
 /* ======================================
    OPEN Tik tok PER WARNA
    ====================================== */
-// function openTiktok(warna){
-//   const link = TIKTOK_LINKS[warna];
-//   if(!link){
-//     alert("Silahkan pilih warna terlebih dahulu");
-//     return;
-//   }
-//   window.location.href = link; // aman utk TikTok Ads
-// }
+function openTiktok(warna){
+  const link = TIKTOK_LINKS[warna];
+  if(!link){
+    alert("Silahkan pilih warna terlebih dahulu");
+    return;
+  }
+  window.location.href = link; // aman utk TikTok Ads
+}
 
-// function openShopee(warna){
-//   const link = SHOPEE_LINKS [warna];
-//   if(!link){
-//     alert("Silahkan pilih warna terlebih dahulu");
-//     return;
-//   }
-//   window.location.href = link; // aman utk TikTok Ads
-// }
+function openTiktokOrder(warna){
+  const link = TIKTOK_LINKS [warna];
+  if(!link){
+    alert("Silahkan pilih warna terlebih dahulu");
+    return;
+  }
+  window.location.href = link; // aman utk TikTok Ads
+}
 
 /* ======================================
    SHOPEE PAKET
@@ -277,41 +278,6 @@ document.addEventListener("DOMContentLoaded", function () {
   startAutoSlide();
 });
 
-/* =========================
-   AUTO SLIDE VIDEO MOBILE
-   ========================= */
-
-const videoGrid = document.querySelector('.video-grid');
-
-if(videoGrid){
-
-  let index = 0;
-  const slides = videoGrid.children;
-  const totalSlides = slides.length;
-
-  function autoSlide(){
-
-    // hanya jalan di mobile
-    if(window.innerWidth > 768) return;
-
-    index++;
-
-    if(index >= totalSlides){
-      index = 0;
-    }
-
-    const slideWidth = slides[0].offsetWidth + 18; // + gap
-    videoGrid.scrollTo({
-      left: slideWidth * index,
-      behavior: "smooth"
-    });
-
-  }
-
-  setInterval(autoSlide, 4000); // 4 detik
-
-}
-
 function showNotif(message, type="error"){
   const notif = document.getElementById("customNotif");
   if(!notif) return;
@@ -324,25 +290,29 @@ function showNotif(message, type="error"){
   },2000);
 }
 
-function openTiktok(warna){
-  const link = TIKTOK_LINKS[warna];
+function openTiktok(){
+
+  const warna = document.getElementById("warna")?.value;
 
   if(!warna || warna === "Pilih Warna"){
     showNotif("⚠️ Silakan pilih warna terlebih dahulu", "error");
     return;
   }
 
+  const link = TIKTOK_LINKS[warna];
+
   if(!link){
     showNotif("Link TikTok belum tersedia", "error");
     return;
   }
 
-  showNotif("Mengarahkan ke TikTok Shop...", "success");
+  showNotif("🎵 Mengarahkan ke TikTok Shop...", "success");
 
   setTimeout(()=>{
-    window.location.href = link;
-  },800);
+    window.open(link, "_blank"); 
+  },600);
 }
+
 
 
 function openShopee(warna){
@@ -405,3 +375,41 @@ function showBubble(text){
     bubble.classList.remove("show");
   },4000);
 }
+
+
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  const slider = document.getElementById("videoSlider");
+  if(!slider) return;
+
+  const track = slider.querySelector(".video-track");
+  const items = slider.querySelectorAll(".video-item");
+
+  let index = 0;
+  let autoSlide;
+
+  function goToSlide(i){
+    track.style.transform = `translateX(-${i * 100}%)`;
+  }
+
+  function startAuto(){
+    autoSlide = setInterval(()=>{
+      index++;
+      if(index >= items.length) index = 0;
+      goToSlide(index);
+    },4000);
+  }
+
+  function stopAuto(){
+    clearInterval(autoSlide);
+  }
+
+  if(window.innerWidth <= 768){
+    startAuto();
+
+    slider.addEventListener("touchstart", stopAuto);
+    slider.addEventListener("touchend", startAuto);
+  }
+
+});
