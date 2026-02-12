@@ -377,7 +377,6 @@ function showBubble(text){
 }
 
 
-
 document.addEventListener("DOMContentLoaded", function(){
 
   const slider = document.getElementById("videoSlider");
@@ -385,31 +384,31 @@ document.addEventListener("DOMContentLoaded", function(){
 
   const track = slider.querySelector(".video-track");
   const items = slider.querySelectorAll(".video-item");
+  const videos = slider.querySelectorAll("video");
 
   let index = 0;
-  let autoSlide;
 
   function goToSlide(i){
+    track.style.transition = "transform 0.6s ease";
     track.style.transform = `translateX(-${i * 100}%)`;
+
+    videos.forEach(v => v.pause());
+    videos[i].currentTime = 0;
+    videos[i].play();
   }
 
-  function startAuto(){
-    autoSlide = setInterval(()=>{
+  videos.forEach((video, i) => {
+    video.addEventListener("ended", function(){
       index++;
-      if(index >= items.length) index = 0;
+      if(index >= videos.length){
+        index = 0;
+      }
       goToSlide(index);
-    },4000);
-  }
+    });
+  });
 
-  function stopAuto(){
-    clearInterval(autoSlide);
-  }
-
-  if(window.innerWidth <= 768){
-    startAuto();
-
-    slider.addEventListener("touchstart", stopAuto);
-    slider.addEventListener("touchend", startAuto);
-  }
+  // Mulai video pertama
+  goToSlide(0);
 
 });
+
