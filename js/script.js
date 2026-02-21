@@ -183,14 +183,26 @@ updateTimer();
 const customNotif = document.getElementById("customNotif");
 
 const buyers = [
-  "Siti - Bandung",
-  "Ayu - Bekasi",
-  "Nur - Surabaya",
-  "Lina - Depok",
-  "Rina - Bogor",
-  "Adisty - Cirebon",
-  "Dhea - Jakarta",
-  "Andini - Tasikmalaya"
+"Siti - Bandung",
+"Ayu - Bekasi",
+"Nur - Surabaya",
+"Lina - Depok",
+"Rina - Bogor",
+"Adisty - Cirebon",
+"Dhea - Jakarta",
+"Andini - Tasikmalaya",
+"Putri - Cimahi",
+"Intan - Garut",
+"Rahma - Semarang",
+"Nabila - Yogyakarta",
+"Fira - Malang",
+"Zahra - Palembang",
+"Melati - Makassar",
+"Tasya - Tangerang",
+"Salsa - Serang",
+"Anisa - Pontianak",
+"Fitri - Banjarmasin",
+"Shinta - Medan"
 ];
 
 function showCustomNotif(){
