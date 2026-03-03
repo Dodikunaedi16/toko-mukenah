@@ -113,9 +113,9 @@ function openTiktokOrder(warna){
    ====================================== */
 function openShopeePaket(paket){
   const links = {
-    paket3 : "https://vt.tokopedia.com/t/ZS9JPHJPsv2FA-nrXfM/",
-    paket5 : "https://vt.tokopedia.com/t/ZS9JPH82rUuvj-uhIHR/",
-    paket10: "https://vt.tokopedia.com/t/ZS9JPH22GYDPt-fk6MX/"
+    paket3 : "https://id.shp.ee/M5WvNXz",
+    paket5 : "https://id.shp.ee/M5WvNXz",
+    paket10: "https://id.shp.ee/M5WvNXz"
   };
 
   
@@ -183,26 +183,14 @@ updateTimer();
 const customNotif = document.getElementById("customNotif");
 
 const buyers = [
-"Siti - Bandung",
-"Ayu - Bekasi",
-"Nur - Surabaya",
-"Lina - Depok",
-"Rina - Bogor",
-"Adisty - Cirebon",
-"Dhea - Jakarta",
-"Andini - Tasikmalaya",
-"Putri - Cimahi",
-"Intan - Garut",
-"Rahma - Semarang",
-"Nabila - Yogyakarta",
-"Fira - Malang",
-"Zahra - Palembang",
-"Melati - Makassar",
-"Tasya - Tangerang",
-"Salsa - Serang",
-"Anisa - Pontianak",
-"Fitri - Banjarmasin",
-"Shinta - Medan"
+  "Siti - Bandung",
+  "Ayu - Bekasi",
+  "Nur - Surabaya",
+  "Lina - Depok",
+  "Rina - Bogor",
+  "Adisty - Cirebon",
+  "Dhea - Jakarta",
+  "Andini - Tasikmalaya"
 ];
 
 function showCustomNotif(){
